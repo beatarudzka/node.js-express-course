@@ -11,7 +11,16 @@ app.set('view engine', 'pug')
 
 //Home route
 app.get('/', function (req, res) {
-  res.render('index')
+  res.render('index', {
+    title: 'Articles'
+  })
+})
+
+//Add route
+app.get('/articles/add', function (req, res) {
+  res.render('add-article', {
+    title: 'Add article'
+  })
 })
 
 //Start server
