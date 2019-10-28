@@ -4,7 +4,7 @@ const path = require('path')
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 
-mongoose.connect('mongodb://localhost/nodekb', {
+mongoose.connect('mongodb://localhost/notekb', {
   useNewUrlParser: true
 })
 let db = mongoose.connection
@@ -33,6 +33,9 @@ app.use(bodyParser.urlencoded({ extended: false }))
 
 // parse application/json
 app.use(bodyParser.json())
+
+//Set public Folder
+app.use(express.static(path.join(__dirname, 'public')))
 
 //Home route
 app.get('/', function (req, res) {
