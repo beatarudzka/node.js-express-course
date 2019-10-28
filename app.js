@@ -1,7 +1,10 @@
 //Create route
 const express = require('express')
 const path = require('path')
+const mongoose = require('mongoose')
 
+mongoose.connect('mongodb://localhost/nodekb')
+let db = mongoose.connection
 //Init App
 const app = express()
 
@@ -47,5 +50,5 @@ app.get('/articles/add', function (req, res) {
 
 //Start server
 app.listen(3000, function () {
-  console.log('Server stared on port 3000')
+  console.log('Server started on port 3000')
 })
